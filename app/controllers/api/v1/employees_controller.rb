@@ -1,4 +1,4 @@
-class EmployeesController < ApplicationController
+class Api::V1::EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
@@ -21,9 +21,11 @@ class EmployeesController < ApplicationController
 
   def destroy
     Employee.find(params[:id]).destroy
-    respond_to do |format|
-      format.html { redirect_to "/employees"}
-      format.json {render json: "Employee Deleted" }
-    end
+    render json: "Employee Deleted"
   end
+
+
+
+
+
 end
